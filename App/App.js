@@ -5,6 +5,9 @@ class jHex {
 
 		this.root = $("#root");
 		this.root.maximize();
+
+		this.styles = this.createElement("style", {"type" : "text/css"});
+		$("head").append(this.styles);
 	}
 
 	createElement(tag, attributes) {
@@ -17,10 +20,31 @@ class jHex {
 		}
 
 		this.root.append(base);
+
+		return base;
 	}
 
-	defineType() {
+	defineType(name, properties, pseudoElem) {
+		let styles = "";
+		let substyles = {};
 
+		for (let prop in properties) {
+			if (prop.includes("&:")) {
+				this.defineType(name, properties[prop], prop.substring(1));
+			} else {
+				styles += `${prop}: ${properties[prop]};`;
+			}
+		}
+
+		let base = '';
+
+		if (pseudoElem) {
+			base = `[type~="${name}"]${pseudoElem} { ${styles} }`;
+		} else {
+			base = `[type~="${name}"] { ${styles} }`;
+		}
+
+		this.styles.append(base);
 	}
 }
 
@@ -43,8 +67,12 @@ class HexObject {
 		this.root.setAttribute(attr, value);
 	}
 
-	maximize() {
-		this.css({"width" : "100%", "height" : "100%"});
+	maximize(dim) {
+		if (dim) {
+			this.css({dim : "100%"});
+		} else {
+			this.css({"width" : "100%", "height" : "100%"});
+		}
 	}
 
 	append(element) {
