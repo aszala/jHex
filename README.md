@@ -1,0 +1,2 @@
+# jHex
+Custom JavaScript framework
