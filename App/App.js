@@ -71,8 +71,10 @@ class HexObject {
 	}
 
 	maximize(dim) {
-		if (dim) {
-			this.css({dim : "100%"});
+		if (dim == "width") {
+			this.css({"width" : "100%"});
+		} else if (dim == "height") {
+			this.css({"height" : "100%"});
 		} else {
 			this.css({"width" : "100%", "height" : "100%"});
 		}
