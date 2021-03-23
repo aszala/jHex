@@ -1,6 +1,6 @@
 $(function() {
 	App.createElement("div", {"type" : "button", "id" : "tester"});
-	$("#tester").append("this is pruple");
+	$("#tester").content("this is pruple");
 
 	App.defineType("button", {
 		"width": "70%",
