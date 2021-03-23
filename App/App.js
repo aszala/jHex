@@ -1,6 +1,7 @@
 class jHex {
 	constructor() {
 		$("body").css({"margin" : "0"});
+		$("html").maximize();
 		$("body").maximize();
 
 		this.root = $("#root");
@@ -75,6 +76,32 @@ class HexObject {
 		}
 	}
 
+	forceCenter(dim, pos) {
+		if (!pos) {
+			this.css({"position" : "relative"});
+		}
+
+		if (dim) {
+			if (dim == "vertical") {
+				this.css({
+					"left": "50%",
+					"transform": `${this.element.style["transform"]} translateX(-50%)`
+				});
+			} else if (dim == "horizontal") {
+				this.css({
+					"top": "50%",
+					"transform": `${this.element.style["transform"]} translateY(-50%)`
+				});
+			}
+		} else {
+			this.css({
+				"top": "50%",
+				"left": "50%",
+				"transform": `${this.element.style["transform"]} translateX(-50%) translateY(-50%)`
+			});
+		}
+	}
+
 	append(element) {
 		if (element instanceof HexObject) {
 			this.root.appendChild(element.root);
@@ -93,6 +120,10 @@ class HexObject {
 		} else if (typeof content == 'string') {
 			this.root.innerHTML = content;
 		}
+	}
+
+	addListener(event, action) {
+		this.root.addEventListener(event, action);
 	}
 }
 
