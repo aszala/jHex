@@ -1,6 +1,7 @@
 class jHex {
 	constructor() {
-		$("body").css({"margin" : "0", "width" : "100%", "height" : "100%"});
+		$("body").css({"margin" : "0"});
+		$("body").maximize();
 	}
 }
 
@@ -18,6 +19,10 @@ class HexObject {
 			this.element.style[key] = properties[key];
 		}
 	}
+
+	maximize() {
+		this.css({"width" : "100%", "height" : "100%"});
+	}
 }
 
 function $(selector) {
@@ -25,4 +30,4 @@ function $(selector) {
 }
 
 
-let App = new jHex();
+let App = new jHex()
