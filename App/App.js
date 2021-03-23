@@ -82,12 +82,12 @@ class HexObject {
 		}
 
 		if (dim) {
-			if (dim == "vertical") {
+			if (dim == "horizontal") {
 				this.css({
 					"left": "50%",
 					"transform": `${this.element.style["transform"]} translateX(-50%)`
 				});
-			} else if (dim == "horizontal") {
+			} else if (dim == "vertical") {
 				this.css({
 					"top": "50%",
 					"transform": `${this.element.style["transform"]} translateY(-50%)`
