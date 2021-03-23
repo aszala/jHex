@@ -106,6 +106,12 @@ class HexObject {
 		}
 	}
 
+	forceCenterChildren(dim) {
+		for (let i=0;i<this.childCount;i++) {
+			this.child(i).forceCenter(dim);
+		}
+	}
+
 	append(element) {
 		if (element instanceof HexObject) {
 			this.root.appendChild(element.root);
