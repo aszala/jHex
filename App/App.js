@@ -11,7 +11,7 @@ class jHex {
 		$("head").append(this.styles);
 	}
 
-	createElement(tag, attributes) {
+	createElement(tag, attributes, content) {
 		let base = $(document.createElement(tag));
 
 		if (attributes) {
@@ -19,6 +19,8 @@ class jHex {
 				base.attr(attr, attributes[attr]);
 			}
 		}
+
+		base.content(content);
 
 		this.root.append(base);
 
