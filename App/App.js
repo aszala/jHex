@@ -4,6 +4,7 @@ class jHex {
 		$("body").maximize();
 
 		this.root = $("#root");
+		this.root.maximize();
 	}
 
 	createElement(tag, attributes) {
