@@ -47,7 +47,7 @@ class HexObject {
 	}
 
 	append(element) {
-		if (typeof content == HexObject) {
+		if (element instanceof HexObject) {
 			this.root.appendChild(element.root);
 		} else if (typeof content == 'object') {
 			this.root.appendChild(element);
@@ -55,7 +55,7 @@ class HexObject {
 	}
 
 	content(content) {
-		if (typeof content == HexObject) {
+		if (content instanceof HexObject) {
 			this.append(content.root);
 		} else if (typeof content == 'object') {
 			this.append(content);
@@ -68,10 +68,12 @@ class HexObject {
 function $(selector) {
 	if (typeof selector == "string") {
 		return new HexObject(document.querySelector(selector));
-	} else if (typeof selector == "object") {
-		return new HexObject(selector);
+	} else if (selector instanceof HexObject) {
+		return selector;
 	} else if (typeof selector == 'function') {
 		selector();
+	} else if (typeof selector == "object") {
+		return new HexObject(selector);
 	}
 }
 
