@@ -117,7 +117,7 @@ $(function() {
 
 
 	githubContainer.append(App.createElement("div", {}, "This site template was made using the jHex framework"));
-	githubContainer.append(App.createElement("a", {"type": "nav-link button", "href" : "#"}, "GitHub"));
+	githubContainer.append(App.createElement("a", {"type": "nav-link button", "href" : "https://github.com/aszala/jHex"}, "GitHub"));
 
 	githubContainer.child(0).css({
 		"font-size": "30px",
