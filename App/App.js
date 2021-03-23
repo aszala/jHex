@@ -125,6 +125,14 @@ class HexObject {
 	addListener(event, action) {
 		this.root.addEventListener(event, action);
 	}
+
+	get childCount() {
+		return this.element.children.length;
+	}
+
+	child(i) {
+		return $(this.element.children[i]);
+	}
 }
 
 function $(selector) {
