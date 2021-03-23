@@ -50,8 +50,10 @@ class HexObject {
 	append(element) {
 		if (element instanceof HexObject) {
 			this.root.appendChild(element.root);
-		} else if (typeof content == 'object') {
+		} else if (typeof element == 'object') {
 			this.root.appendChild(element);
+		} else if (typeof element == 'string') {
+			this.root.appendChild(document.createTextNode(element));
 		}
 	}
 
