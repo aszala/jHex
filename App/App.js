@@ -76,8 +76,8 @@ class HexObject {
 		}
 	}
 
-	forceCenter(dim, pos) {
-		if (!pos) {
+	forceCenter(dim) {
+		if (this.root.style["position"].length == 0) {
 			this.css({"position" : "relative"});
 		}
 
